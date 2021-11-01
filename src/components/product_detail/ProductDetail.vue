@@ -111,6 +111,18 @@
                   @click="tabChanged" />
                 <div>{{ tabs[selectedTabIndex - 1].description }}</div>
               </template>
+              <div v-if="tags" class="product-tags">
+                <h3>Теги</h3>
+                <div class="tags">
+                  <div
+                    v-for="tag in tags"
+                    :key="`tag-${tag.id}`"
+                    class="tag is-light"
+                  >
+                    <router-link :to="`/tags/${tag.id}`">{{ tag.title }}</router-link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -245,6 +257,12 @@ export default {
     },
     quantifyCompareItems () {
       return this.$store.getters.numbersOfCompareProducts
+    },
+    tags () {
+      if (!this.product.tags) {
+        return null
+      }
+      return this.$store.getters.getTagsById(this.product.tags)
     }
   },
 
@@ -335,6 +353,9 @@ export default {
 .skeleton {
   width: 100vw;
   height: 40vw;
+}
+.product-tags {
+  margin-top: 20px;
 }
 </style>
 

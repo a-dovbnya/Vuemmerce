@@ -55,7 +55,8 @@ const state = [
             "title": "Slide #10",
             "src": "https://bulma.io/images/placeholders/128x128.png"
         }
-    ]
+    ],
+    "tags": [1, 4]
   },
   {
     "id": 2,
@@ -113,7 +114,8 @@ const state = [
             "title": "Slide #10",
             "src": "https://bulma.io/images/placeholders/128x128.png"
         }
-    ]
+    ],
+    "tags": [1, 3]
   },
   {
     "id": 3,
@@ -171,7 +173,8 @@ const state = [
             "title": "Slide #10",
             "src": "https://bulma.io/images/placeholders/128x128.png"
         }
-    ]
+    ],
+    "tags": [1, 3, 4]
   },
   {
     "id": 4,
@@ -691,6 +694,9 @@ const getters = {
   },
   quantity: state => {
     return state.quantity;
+  },
+  getProductsByTag: state => id => {
+    return state.filter(product => product.tags && product.tags.includes(id))
   }
 };
 
@@ -737,6 +743,14 @@ const actions = {
       commit('addToCart', id);
       commit('setAddedBtn', id);
       resolve();
+    })
+  },
+
+  pseudoFetchProductsByTag ({ getters }, id) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(getters.getProductsByTag(id))
+      }, 2000)
     })
   }
 };

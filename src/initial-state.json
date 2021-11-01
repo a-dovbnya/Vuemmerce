@@ -105,6 +105,28 @@
       "text": "This is a really nice little monitor. I was not expecting much for a low-end monitor at a rock bottom price, but have to admit I am pleasantly surprised."
     }
   ],
+  "tags": [
+    {
+      "id": 1,
+      "title": "Tag-1"
+    },
+    {
+      "id": 2,
+      "title": "Tag-2"
+    },
+    {
+      "id": 3,
+      "title": "Tag-3"
+    },
+    {
+      "id": 4,
+      "title": "Tag-4"
+    },
+    {
+      "id": 5,
+      "title": "Tag-5"
+    }
+  ],
   "news": [
     {
       "id": 0,

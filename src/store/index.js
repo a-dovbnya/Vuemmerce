@@ -77,6 +77,12 @@ export default new Vuex.Store({
         }
       }, 0);
       return count === 0 ? 0 : Math.floor(10 * sum / count) / 10;
+    },
+    getTagsById: state => idArray => {
+      return state.tags.filter(tag => idArray.includes(tag.id))
+    },
+    getTagById: state => id => {
+      return state.tags.find(tag => tag.id === id)
     }
   },
 

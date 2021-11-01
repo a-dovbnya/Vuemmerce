@@ -13,6 +13,7 @@ import Profile from "./components/profile/Profile";
 import AllNews from "./components/news/AllNews";
 import SingleNew from "./components/news/SingleNew";
 import Compare from "./components/compare/Compare";
+import Tags from "./components/tags/Tags";
 
 Vue.use(Router);
 
@@ -48,6 +49,12 @@ export default new Router({
       name: 'product-reviews-component',
       props: true,
       component: ProductReviews,
+    },
+    {
+      path: '/tags/:id',
+      name: 'product-by-tag',
+      props: true,
+      component: Tags
     },
     {
       path: '/order',
